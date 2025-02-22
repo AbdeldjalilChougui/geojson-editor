@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Ccircle cx=%278%27 cy=%278%27 r=%277%27 fill=%27%232a9d8f%27/%3E%3C/svg%3E">
+    <title>GeoJSON Editor</title>
+  </head>
+  <body>
+    <header>
+      <strong>GeoJSON Editor</strong>
+      <div class="tools" id="modes">
+        <button data-mode="select" class="active" title="Select / edit">Select</button>
+        <button data-mode="point">Point</button>
+        <button data-mode="linestring">Line</button>
+        <button data-mode="polygon">Polygon</button>
+        <button data-mode="rectangle">Rectangle</button>
+      </div>
+      <div class="tools">
+        <label class="btn">Open file<input type="file" id="file" accept=".geojson,.json,application/geo+json" hidden /></label>
+        <button id="open-url">Open URL</button>
+        <button id="paste">Paste</button>
+        <button id="clear">New</button>
+      </div>
+    </header>
+    <main>
+      <div id="map"></div>
+      <aside>
+        <section>
+          <h2>Features <span id="count"></span></h2>
+          <ul id="features"></ul>
+        </section>
+        <section id="props-section">
+          <h2>Properties</h2>
+          <div id="props"><p class="muted">Select a feature.</p></div>
+        </section>
+        <section>
+          <h2>Validation</h2>
+          <ul id="issues"></ul>
+          <button id="rewind">Fix winding (RFC 7946)</button>
+        </section>
+        <section>
+          <h2>Export</h2>
+          <label>Precision <select id="precision"><option value="">full</option><option>7</option><option selected>6</option><option>5</option><option>4</option></select></label>
+          <label><input type="checkbox" id="compact" /> compact</label>
+          <div class="row"><button id="download">Download</button><button id="copy">Copy</button></div>
+        </section>
+      </aside>
+    </main>
+    <dialog id="paste-dialog">
+      <form method="dialog">
+        <h3>Paste GeoJSON</h3>
+        <textarea id="paste-text" rows="14" spellcheck="false"></textarea>
+        <p id="paste-error" class="error"></p>
+        <div class="row"><button value="cancel">Cancel</button><button id="paste-ok" value="ok">Load</button></div>
+      </form>
+    </dialog>
+    <div id="toast" role="status"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
