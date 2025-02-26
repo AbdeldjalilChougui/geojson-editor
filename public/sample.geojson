@@ -1,0 +1,9 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    { "type": "Feature", "properties": { "name": "Grande Poste", "city": "Alger" }, "geometry": { "type": "Point", "coordinates": [3.0588, 36.7725] } },
+    { "type": "Feature", "properties": { "name": "Front de mer" }, "geometry": { "type": "LineString", "coordinates": [[3.0560, 36.7740], [3.0610, 36.7700], [3.0660, 36.7665]] } },
+    { "type": "Feature", "properties": { "name": "Jardin d'Essai (approx.)" }, "geometry": { "type": "Polygon", "coordinates": [[[3.0700, 36.7450], [3.0800, 36.7450], [3.0800, 36.7510], [3.0700, 36.7510], [3.0700, 36.7450]]] } },
+    { "type": "Feature", "properties": { "name": "Two points" }, "geometry": { "type": "MultiPoint", "coordinates": [[3.04, 36.76], [3.05, 36.76]] } }
+  ]
+}
